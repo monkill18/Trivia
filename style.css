@@ -11,7 +11,6 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    /* Usamos background-attachment fixed para que el degradado no se corte */
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     background-attachment: fixed;
     display: flex;
@@ -36,7 +35,6 @@ body {
     position: relative;
 }
 
-/* Títulos */
 h1 {
     font-size: 1.8rem;
     margin-bottom: 15px;
@@ -51,7 +49,6 @@ h1 {
     font-weight: 500;
 }
 
-/* Contenedor de Marcador y Vidas */
 .score-container {
     display: flex;
     justify-content: space-between;
@@ -73,7 +70,6 @@ h1 {
     font-size: 1.2rem;
 }
 
-/* Rejilla de Opciones de Respuesta */
 #options-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -81,51 +77,56 @@ h1 {
     margin-top: 20px;
 }
 
+/* BOTONES BASE */
+.option-btn, .cat-btn {
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
 .option-btn {
     background: white;
     color: var(--text-dark);
     border: 2px solid #eee;
     padding: 15px 10px;
-    border-radius: 12px;
     font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.option-btn:hover {
-    background: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-/* Menú de Categorías */
-.category-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
 }
 
 .cat-btn {
     background: #2c3e50;
     color: white;
     padding: 20px 10px;
-    border: none;
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
-.cat-btn:hover {
-    background: #34495e;
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+/* --- SOLUCIÓN PARA MÓVIL (Sticky Hover) --- */
+
+/* Efectos solo para computadoras (con mouse) */
+@media (hover: hover) {
+    .option-btn:hover {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+    .cat-btn:hover {
+        background: #34495e;
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
 }
 
-/* Mensajes de Resultado y Nivel */
+/* Efectos para cuando se presiona el botón (Móvil y PC) */
+.option-btn:active, .cat-btn:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* ------------------------------------------ */
+
 #result {
     margin-top: 20px;
     font-weight: 600;
@@ -141,7 +142,6 @@ h1 {
     display: block;
 }
 
-/* Animaciones */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -154,4 +154,10 @@ h1 {
 
 .fade-in {
     animation: fadeIn 0.4s ease forwards;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
