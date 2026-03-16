@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --primary-color: #4facfe;
+    --secondary-color: #00f2fe;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+    --text-dark: #2d3436;
+    --glass-bg: rgba(255, 255, 255, 0.95);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Usamos background-attachment fixed para que el degradado no se corte */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: var(--text-dark);
+    transition: background 1s ease, background-color 1s ease;
+}
+
+.game-container {
+    background: var(--glass-bg);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+/* Títulos */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+#riddle {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 20px 0;
+    min-height: 50px;
+    font-weight: 500;
+}
+
+/* Contenedor de Marcador y Vidas */
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+#correctCount {
+    color: var(--success-color);
+    font-size: 1.2rem;
+}
+
+#lives-container {
+    letter-spacing: 3px;
+    font-size: 1.2rem;
+}
+
+/* Rejilla de Opciones de Respuesta */
+#options-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.option-btn {
+    background: white;
+    color: var(--text-dark);
+    border: 2px solid #eee;
+    padding: 15px 10px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Menú de Categorías */
+.category-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.cat-btn {
+    background: #2c3e50;
+    color: white;
+    padding: 20px 10px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.cat-btn:hover {
+    background: #34495e;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Mensajes de Resultado y Nivel */
+#result {
+    margin-top: 20px;
+    font-weight: 600;
+    min-height: 24px;
+}
+
+.level-up {
+    color: #f1c40f;
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    animation: zoomIn 0.6s ease;
+    display: block;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease forwards;
+}

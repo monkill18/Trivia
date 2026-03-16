@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Juegos De Adivinanzas</title>
+</head>
+<body>
+    <div class="game-container">
+
+        <div id="menu-container">
+            <h1>Selecciona una Categoría</h1>
+            <div class="category-grid">
+                <button class="cat-btn" onclick="startGame('matematicas')">Matemáticas</button>
+                <button class="cat-btn" onclick="startGame('ciencias')">Ciencias</button>
+                <button class="cat-btn" onclick="startGame('historia')">Historia</button>
+                <button class="cat-btn" onclick="startGame('filosofia')">Filosofía</button>
+                <button class="cat-btn" onclick="startGame('deporte')">Deporte</button>
+                <button class="cat-btn" onclick="startGame('videojuegos')">Videojuegos</button>
+            </div>
+        </div>
+
+        <div id="quiz-screen" style="display: none;">
+            <div class="score-container">
+                Aciertos: <span id="correctCount">0</span>
+                <div id="lives-container">❤️❤️❤️</div> 
+            </div>
+
+            <h1>Trivia</h1>
+            <p id="riddle"></p>
+            <div id="options-container"></div>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script src="preguntas.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
